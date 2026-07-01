@@ -1,290 +1,181 @@
-# Enterprise Anomaly Detection System
+# Enterprise Anomaly Detection & Monitoring Platform 🚀
 
-## Project Overview
+A production-style monitoring and alerting solution built using modern observability tools.
 
-The Enterprise Anomaly Detection System is a monitoring solution built using Grafana, Prometheus, Node Exporter, Loki, and Promtail. It provides real-time infrastructure monitoring, anomaly detection, centralized log collection, and intelligent alerting for Linux servers.
-
-This project demonstrates how enterprise organizations monitor CPU, memory, disk, network performance, and system logs to proactively detect issues before they affect production environments.
+This project demonstrates how DevOps engineers monitor infrastructure health, detect abnormal behavior, visualize metrics, and create automated alerting workflows.
 
 ---
 
-## Architecture
+# 🏗️ Architecture Overview
 
-```
-+-------------------+
-|   Node Exporter   |
-+-------------------+
-          |
-          v
-+-------------------+
-|   Prometheus      |
-+-------------------+
-          |
-          v
-+-------------------+
-|    Grafana        |
-+-------------------+
-          ^
-          |
-+-------------------+
-|      Loki         |
-+-------------------+
-          ^
-          |
-+-------------------+
-|    Promtail       |
-+-------------------+
-          ^
-          |
-     Linux Log Files
-```
+The monitoring stack includes:
+
+- Prometheus → Metrics collection
+- Grafana → Visualization & dashboards
+- Node Exporter → Linux system metrics
+- Loki → Log aggregation
+- Alert Rules → Automated anomaly detection
+
+Flow:
+
+Linux Server  
+⬇️  
+Node Exporter  
+⬇️  
+Prometheus  
+⬇️  
+Grafana Dashboards + Alerts  
+⬇️  
+Incident Detection
 
 ---
 
-## Features
+# 🛠️ Technologies Used
 
-- Real-time CPU monitoring
-- Memory usage monitoring
-- Disk usage monitoring
-- Network traffic monitoring
-- Prometheus metrics collection
-- Grafana dashboards
-- Centralized log aggregation with Loki
-- Log collection using Promtail
-- Alert rules for infrastructure anomalies
-- Executive monitoring dashboard
-- Historical performance trends
-
----
-
-## Technologies Used
-
-- Grafana
+## Monitoring
 - Prometheus
+- Grafana
 - Node Exporter
 - Loki
-- Promtail
+
+## Infrastructure
+- Ubuntu Linux
+- Virtual Machines
 - Docker
-- Docker Compose
-- Linux (Ubuntu)
+
+## DevOps Practices
+- Monitoring & Observability
+- Alert Engineering
+- Infrastructure Troubleshooting
+- System Reliability
 
 ---
 
-## Project Structure
+# 📊 Monitoring Implementation
 
-```
-enterprise-anomaly-detection/
-│
-├── docker-compose.yml
-├── loki-config.yml
-├── promtail-config.yml
-├── README.md
-└── screenshots/
-    ├── dashboard.png
-    ├── executive-dashboard.png
-    ├── alerts.png
-    ├── prometheus-targets.png
-    └── grafana-home.png
-```
+## Grafana Dashboard
 
----
+Created dashboards to monitor:
 
-## Services
+- CPU usage
+- Memory usage
+- Disk utilization
+- Network activity
+- System performance
 
-| Service | Port |
-|----------|------|
-| Grafana | 3000 |
-| Prometheus | 9090 |
-| Node Exporter | 9100 |
-| Loki | 3100 |
-| Promtail | 9080 |
+
+![Grafana Dashboard](screenshots/grafana-dashboard.png)
+
 
 ---
 
-## Setup
+# 🚨 Alerting System
 
-### Clone the repository
+Configured anomaly detection alerts for:
 
-```bash
-git clone https://github.com/feranzeey/enterprise-anomaly-detection.git
-```
+## CPU Anomaly Detection
 
-### Enter the project
+Detects unusual CPU spikes compared to normal behavior.
 
-```bash
-cd enterprise-anomaly-detection
-```
+![Alert Rules](screenshots/alert-rules.png)
 
-### Start the monitoring stack
-
-```bash
-docker compose up -d
-```
-
-### Verify running containers
-
-```bash
-docker ps
-```
 
 ---
 
-## Access the Applications
+## Memory Alert
 
-### Grafana
+Tracks abnormal memory consumption.
 
-```
-http://localhost:3000
-```
+![Memory Alert](screenshots/memory-alert.png)
 
-Default credentials
-
-Username
-
-```
-admin
-```
-
-Password
-
-```
-admin
-```
 
 ---
 
-### Prometheus
+## Network Alert
 
-```
-http://localhost:9090
-```
+Monitors network activity changes.
 
----
+![Network Alert](screenshots/network-alert.png)
 
-### Node Exporter Metrics
-
-```
-http://localhost:9100/metrics
-```
 
 ---
 
-### Loki
+# 📈 Node Exporter Monitoring
 
-```
-http://localhost:3100
-```
+Collected real-time Linux infrastructure metrics.
 
----
+![Node Exporter Dashboard](screenshots/node-exporter-dashboard.png)
 
-## Alert Rules
-
-The following infrastructure alerts were configured:
-
-- High CPU Usage
-- High Memory Usage
-- High Disk Usage
-- High Network Utilization
-
-These alerts notify administrators when resource utilization exceeds defined thresholds.
 
 ---
 
-## Dashboards
+# 🔎 Log Monitoring
 
-### Infrastructure Dashboard
+Integrated Loki for centralized log collection and analysis.
 
-Displays:
+![Loki Added](screenshots/loki-added.png)
 
-- CPU Usage
-- Memory Usage
-- Disk Usage
-- Network Activity
 
 ---
 
-### Executive Dashboard
+# ⚙️ Dashboard Setup
 
-Displays:
+Imported and configured monitoring dashboards inside Grafana.
 
-- Overall infrastructure health
-- Resource utilization
-- Performance trends
-- Active alerts
-- Historical metrics
+![Import Dashboard](screenshots/import-dashboard.png)
+
 
 ---
 
-## Screenshots
+# 🧪 Testing & Validation
 
-Add screenshots inside the **screenshots** folder.
+Tested:
 
-Example:
+✅ Metrics collection  
+✅ Grafana visualization  
+✅ Alert rule creation  
+✅ Infrastructure monitoring  
+✅ Dashboard availability  
 
-```
-screenshots/
-```
 
-- Grafana Dashboard
-- Executive Dashboard
-- Prometheus Targets
-- Alert Rules
-- Loki Logs
+Running services:
 
----
+![All Running](screenshots/all-running.png)
 
-## Skills Demonstrated
-
-- Infrastructure Monitoring
-- Observability
-- Performance Monitoring
-- Alert Management
-- Docker
-- Docker Compose
-- Linux Administration
-- Prometheus Query Language (PromQL)
-- Grafana Dashboard Design
-- Centralized Logging
 
 ---
 
-## Future Improvements
+# 🎯 Skills Demonstrated
 
-- Machine Learning-based anomaly detection
-- Predictive capacity planning
-- Slack notifications
-- Email alerting
-- Kubernetes monitoring
-- AWS CloudWatch integration
-- Grafana Cloud integration
+This project demonstrates practical experience with:
 
----
-
-## Learning Outcomes
-
-Through this project I learned how to:
-
-- Deploy a complete monitoring stack
-- Collect system metrics using Prometheus
-- Visualize infrastructure data with Grafana
-- Configure infrastructure alerts
-- Aggregate logs using Loki and Promtail
-- Build production-style monitoring dashboards
+- Linux administration
+- Prometheus monitoring
+- Grafana dashboards
+- Alert configuration
+- Observability practices
+- Infrastructure troubleshooting
+- DevOps monitoring workflows
 
 ---
 
-## Author
+# 📌 Future Improvements
 
-**Oluwaferanmi Dada**
+- Add Slack/Email alert notifications
+- Deploy monitoring stack using Docker Compose
+- Add Kubernetes monitoring
+- Implement automated incident response
+
+---
+
+# 👨🏽‍💻 Author
+
+Dada Oluwaferanmi Emmanuel
+
+DevOps Engineer Intern | Cloud | CI/CD | Monitoring | Automation
 
 GitHub:
 https://github.com/feranzeey
 
 LinkedIn:
-(Add your LinkedIn profile here)
-
----
-
-## License
-
-This project is for educational and portfolio purposes.
+https://www.linkedin.com/in/dada-oluwaferanmi-devops
